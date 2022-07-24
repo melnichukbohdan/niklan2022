@@ -14,7 +14,7 @@ use Drupal\Component\Utility\Html;
  * @ParagraphsBehavior (
  *   id = "dlog_paragraphs_gallery",
  *   label = @Translation("Gallery settings"),
- *   description = @Translation("Settings for paragraphs type"),
+ *   description = @Translation("Settings for gallery paragraphs type"),
  *   weight = 0,
  * )
  */
@@ -43,11 +43,14 @@ class GalleryBehavior extends ParagraphsBehaviorBase {
 
     //generating class name for bundle 'gallery'
     $bem_block = 'paragraph-' . $paragraph->bundle() .
-      ($view_mode == 'default' ? '' : '-' . $view_mode) .
-      '--images-per-row-' . $images_per_row;
-    $build['#attributes']['class'][] = Html::getClass($bem_block);
+      ($view_mode == 'default' ? '' : '-' . $view_mode);
+    $build['#attributes']['class'][] =
+      Html::getClass($bem_block  . '--images-per-row-' . $images_per_row);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function buildBehaviorForm(ParagraphInterface $paragraph,
                                     array &$form,
                                     FormStateInterface $form_state) {
