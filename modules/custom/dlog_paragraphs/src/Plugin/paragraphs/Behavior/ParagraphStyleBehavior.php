@@ -40,10 +40,12 @@ class ParagraphStyleBehavior extends ParagraphsBehaviorBase {
                        EntityViewDisplayInterface $display,
                        $view_mode) {
     $bem_block = 'paragraph-style';
-    $selected_styles = $paragraph->getBehaviorSetting($this->getPluginId(), 'styles', []);
+    $selected_styles =
+      $paragraph->getBehaviorSetting($this->getPluginId(), 'styles', []);
 
     foreach ($selected_styles as $style) {
-      $build['#attributes']['class'][] = Html::getClass($bem_block . '--' . $style);
+      $build['#attributes']['class'][] =
+        Html::getClass($bem_block . '--' . $style);
     }
 
   }
@@ -79,9 +81,12 @@ class ParagraphStyleBehavior extends ParagraphsBehaviorBase {
   /**
    * {@inheritDoc}
    */
-  public function submitBehaviorForm(ParagraphInterface $paragraph, array &$form, FormStateInterface $form_state) {
+  public function submitBehaviorForm(ParagraphInterface $paragraph,
+                                     array &$form,
+                                     FormStateInterface $form_state) {
     $styles = [];
-    $filtered_value = $this->filterBehaviorFormSubmitValues($paragraph,$form, $form_state);
+    $filtered_value =
+      $this->filterBehaviorFormSubmitValues($paragraph,$form, $form_state);
 
     if (isset($filtered_value['style_wrapper'])) {
       $style_groups = $filtered_value['style_wrapper'];
@@ -102,21 +107,24 @@ class ParagraphStyleBehavior extends ParagraphsBehaviorBase {
 
   public function getStyle (ParagraphInterface $paragraph) {
     $style = [];
-    $style['title'] = [
-      'label' => $this->t('Paragraphs title'),
-      'options' => [
-        'title_bold' => $this->t('Bold'),
-        'title_centered' => $this->t('Centered'),
-      ],
-    ];
+    if ($paragraph->hasField('field_title')) {
 
-    $style['common'] = [
-      'label' => $this->t('Paragraphs common style'),
-      'options' => [
-        'style_black' => $this->t('Style black'),
-      ],
-    ];
 
+      $style['title'] = [
+        'label' => $this->t('Paragraphs title'),
+        'options' => [
+          'title_bold' => $this->t('Bold'),
+          'title_centered' => $this->t('Centered'),
+        ],
+      ];
+
+      $style['common'] = [
+        'label' => $this->t('Paragraphs common style'),
+        'options' => [
+          'style_black' => $this->t('Style black'),
+        ],
+      ];
+    }
     return $style;
   }
 
