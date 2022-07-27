@@ -1,0 +1,22 @@
+{% set bem_block = 'previous_next' %}
+<div attributes.addClass(bem_block) >
+  <div class="{{ bem_block }}__previous">
+    {% if previous %}
+    <a href="{{ previous.url }}" class="{{ bem_block }}__link {{ bem_block }}__link--previous">
+      <span>{{ 'Previos'|t }}</span>
+      {{ previous.label }}
+    </a>
+
+    {% end if %}
+  </div>
+
+  <div class="{{ bem_block }}__next">
+    {% if next %}
+    <a href="{{ next.url }}" class="{{ bem_block }}__link {{ bem_block }}__link--previous">
+      <span>{{ 'Next'|t }}</span>
+      {{ next.label }}
+    </a>
+
+    {% end if %}
+  </div>
+</div>
