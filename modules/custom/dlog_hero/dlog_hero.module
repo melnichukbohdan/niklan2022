@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Main file for custom hooks and functions.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function dlog_hero_theme($existing, $type, $theme, $path) {
+  return [
+    'dlog_hero' => [
+      'variables' => [
+        'title' => NULL,
+        'subtitle' => NULL,
+        'image' => NULL,
+        'video' => [],
+      ],
+      'pattern' => 'dlog_hero__'
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK() for dlog-hero.html.twig
+ */
+function dlog_hero_theme_suggestions_dlog_hero(array $variables) {
+  $suggestions = [];
+
+  if (!empty($variables['image'])) {
+    $suggestions[] = 'dlog_hero__image';
+  }
+
+  if (!empty($variables['image']) && !empty($variables['video'])) {
+    $suggestions[] = 'dlog_hero__video';
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements template_preprocess_HOOK() for dlog-hero.html.twig
+ */
+function template_preprocess_dlog_hero (&$variables) {
+  //Image is required for video. It will bi used for poster
+  if (!empty($variables['video'])) {
+    if (!empty($variables['image'])) {
+      $variables['video'] = [];
+    }
+  }
+}

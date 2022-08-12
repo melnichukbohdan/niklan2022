@@ -1,0 +1,8 @@
+name: Dlog Hero
+description: Custom page title
+type: module
+package: dlog
+core_version_requirement: ^9
+#dependencies:
+#  - drupal:system
+#  - twig_tweak:twig_tweak
