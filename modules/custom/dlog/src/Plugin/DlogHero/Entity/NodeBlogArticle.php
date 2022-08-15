@@ -8,9 +8,9 @@ use Drupal\dlog_hero\Plugin\DlogHero\Entity\DlogHeroEntityPluginBase;
  * Hero bloc for blog_article node type
  *
  * @DlogHeroEntity(
- *  id = "dlog_node_blog_article"
- *  entity_type = "node"
- *  entity_bundle = {"bloc_article"}
+ *  id = "dlog_node_blog_article",
+ *  entity_type = "node",
+ *  entity_bundle = {"blog_article"},
  * )
  */
 class NodeBlogArticle extends DlogHeroEntityPluginBase {
@@ -19,5 +19,18 @@ class NodeBlogArticle extends DlogHeroEntityPluginBase {
     /** @var  \Drupal\node\NodeInterface $node */
     $node = $this->getEntity();
     return $node->get('body')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getHeroImage() {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $this->getEntity();
+    /** @var \Drupal\media\MediaInterface $media */
+    $media = $node->get('field_image')->entity;
+
+    return $media->get('field_media_image')->entity->getFileUri();
+
   }
 }

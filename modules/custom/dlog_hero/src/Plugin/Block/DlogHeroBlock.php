@@ -45,18 +45,19 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\dlog_hero\Plugin\DlogHeroPluginManager $dlog_hero_entity
+   * @param \Drupal\dlog_hero\Plugin\DlogHeroPluginManager $dlogHeroEntity
    *   The plugin manager for dlog hero entity plugins.
-   * @param \Drupal\dlog_hero\Plugin\DlogHeroPluginManager $dlog_hero_path
+   * @param \Drupal\dlog_hero\Plugin\DlogHeroPluginManager $dlogHeroPath
    *   The plugin manager for dlog hero path plugins.
- */
-  public function __construct(array                 $configuration, $plugin_id, $plugin_definition,
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition,
                               DlogHeroPluginManager $dlogHeroEntity,
                               DlogHeroPluginManager $dlogHeroPath) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-
     $this->dlogHeroEntityManager = $dlogHeroEntity;
     $this->dlogHeroPathManager = $dlogHeroPath;
+
+    ;
 
   }
 
@@ -69,7 +70,8 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
       $plugin_id,
       $plugin_definition,
       $container->get('plugin.manager.dlog_hero.entity'),
-      $container->get('plugin.manager.dlog_hero.path')
+      $container->get('plugin.manager.dlog_hero.path'),
+
     );
   }
 
@@ -80,6 +82,8 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
 
     $entity_plugins = $this->dlogHeroEntityManager->getSuitablePlugins();
     $path_plugins = $this->dlogHeroPathManager->getSuitablePlugins();
+
+
     $plugins = $entity_plugins + $path_plugins;
     uasort($plugins, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
     $plugin = end($plugins);
@@ -101,7 +105,9 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
         '#subtitle' => $instance->getHeroSubtitle(),
         '#image' => $instance->getHeroImage(),
         '#video' => $instance->getHeroVideo(),
+
     ];
+    $build['#cache']['max-age'] = 0;
     return $build;
   }
 

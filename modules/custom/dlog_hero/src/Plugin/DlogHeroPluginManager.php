@@ -10,7 +10,6 @@ use Drupal\Core\Path\PathMatcher;
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Plugin\Factory\ContainerFactory;
 use Drupal\Core\Routing\CurrentRouteMatch;
-use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\Container;
 
 /**
@@ -73,8 +72,9 @@ class DlogHeroPluginManager extends DefaultPluginManager {
     //E.g. entity => Entity, path => Path
   $typeCamelaized = Container::camelize($type);
   $subdir = "Plugin/DlogHero/{$typeCamelaized}";
-  $plugin_interface = "Drupal\dlog_hero\Plugin\DlogHero\{$typeCamelaized}\DlogHero{$typeCamelaized}PluginInterface";
-  $plugin_definition_annotation_name = "Drupal\dlog_hero\Annotatoin\DlogHero{$typeCamelaized}";
+ // $plugin_interface = "Drupal\dlog_hero\Plugin\DlogHero\{$typeCamelaized}\DlogHero{$typeCamelaized}PluginInterface";
+  $plugin_interface = 'Drupal\dlog_hero\Plugin\DlogHero\\' . $typeCamelaized . "\DlogHero{$typeCamelaized}PluginInterface";
+  $plugin_definition_annotation_name = "Drupal\dlog_hero\Annotation\DlogHero{$typeCamelaized}";
 
     $this->defaults += [
       'plugin_type' => $type,
@@ -122,8 +122,7 @@ class DlogHeroPluginManager extends DefaultPluginManager {
     $entity = NULL;
     $parameters = $this->currentRouteMatch->getParameters();
     foreach ($parameters as $parameter) {
-      //change EntityInterface on NodeInterface
-      if ($parameter instanceof NodeInterface) {
+      if ($parameter instanceof EntityInterface) {
         $entity = $parameter;
         break;
       }
@@ -132,15 +131,60 @@ class DlogHeroPluginManager extends DefaultPluginManager {
     if ($entity) {
      $definitions = $this->getDefinitions();
       foreach ($definitions as $plugin_id => $plugin) {
-        if ($plugins['enabled']) {
+        if ($plugin['enabled'] && $plugin['plugin_type'] == 'path') {
+          break;
+//       // if ($plugin['enabled']) {
+//          $same_entity_type = $plugin['entity_type'] == $entity->getEntityTypeId();
+//
+//          //TODO need delete variable $entity_type
+//
+//         $entityBundle = $entity->bundle();
+//         $eb =  $plugin['entity_bundle'];
+//        $bundle1 = in_array($entityBundle , $eb);
+//       //   $bundle1 = in_array( $entity->bundle() , $plugin['entity_bundle']);
+//
+//
+//
+//          $bundle2 = in_array('*', $plugin['entity_bundle']);
+//
+//          $needed_bundle = $bundle1 || $bundle2;
+//
+//        //  $needed_bundle = in_array( $entity->bundle() , $plugin['entity_bundle']) || in_array('*', $plugin['entity_bundle']);
+//
+//
+//          if ($same_entity_type && $needed_bundle) {
+//            $plugins[$plugin_id] = $plugin;
+//            $plugins[$plugin_id]['entity'] = $entity;
+//          }
+        }
+
+        if ($plugin['enabled'] && $plugin['plugin_type'] == 'entity') {
           $same_entity_type = $plugin['entity_type'] == $entity->getEntityTypeId();
-          $needed_bundle = in_array($entity->bundle(), $plugin['entity_bundle']) || in_array('*', $plugin['entity_bundle']);
+
+          //TODO need delete variable $entity_type
+
+          $entityBundle = $entity->bundle();
+          $eb =  $plugin['entity_bundle'];
+          $bundle1 = in_array($entityBundle , $eb);
+          //   $bundle1 = in_array( $entity->bundle() , $plugin['entity_bundle']);
+
+
+
+          $bundle2 = in_array('*', $plugin['entity_bundle']);
+
+          $needed_bundle = $bundle1 || $bundle2;
+
+          //  $needed_bundle = in_array( $entity->bundle() , $plugin['entity_bundle']) || in_array('*', $plugin['entity_bundle']);
+
 
           if ($same_entity_type && $needed_bundle) {
-            $plugins[$plugin_id] =$plugin;
+            $plugins[$plugin_id] = $plugin;
             $plugins[$plugin_id]['entity'] = $entity;
           }
         }
+
+
+
       }
     }
 
@@ -153,28 +197,31 @@ class DlogHeroPluginManager extends DefaultPluginManager {
    */
   protected function getSuitablePathPlugins() {
     $plugins = [];
+
       $definitions = $this->getDefinitions();
     foreach ($definitions as $pluginId => $plugin) {
       if ($plugin['enabled']) {
-        $pattern = implode(PHP_EOL, $plugin['match_path']);
-        $currentPath = $this->pathCurrent->getPath();
-        $isMatchPathatch = $this->pathMatcher->matchPath($currentPath, $pattern);
+          if ($plugin['plugin_type'] == 'path') {
+          $pattern = implode(PHP_EOL, $plugin['match_path']);
+          $currentPath = $this->pathCurrent->getPath();
+          $isMatchPathMatch = $this->pathMatcher->matchPath($currentPath, $pattern);
 
-        switch ($plugin['match_path']) {
-          case 'listed':
-          default:
-            $matchType = 0;
-            break;
+          switch ($plugin['match_path']) {
+            case 'listed':
+            default:
+              $matchType = 0;
+              break;
 
-          case 'unlisted':
-            $matchType = 0;
-            break;
-        }
+            case 'unlisted':
+              $matchType = 1;
+              break;
+          }
 
-        $isPluginNeeded = ($isMatchPathatch xor $matchType);
+          $isPluginNeeded = ($isMatchPathMatch xor $matchType);
 
-        if ($isPluginNeeded) {
-          $plugins[$pluginId] = $plugin;
+          if ($isPluginNeeded) {
+            $plugins[$pluginId] = $plugin;
+          }
         }
       }
     }

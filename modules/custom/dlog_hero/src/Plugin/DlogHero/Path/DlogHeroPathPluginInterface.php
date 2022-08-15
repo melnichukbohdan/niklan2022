@@ -2,12 +2,12 @@
 
 namespace Drupal\dlog_hero\Plugin\DlogHero\Path;
 
-use Drupal\dlog_hero\Plugin\DlogHero\Path\DlogHeroPluginInterface;
+use Drupal\dlog_hero\Plugin\DlogHero\DlogHeroPluginInterface;
 
 /**
  * Interface for DlogHero path plugin type.
  */
-interface DlogHeroPathPluginInterface extends DlogHeroPluginInterface{
+interface DlogHeroPathPluginInterface extends DlogHeroPluginInterface {
 
   /**
    * Gets match paths.
