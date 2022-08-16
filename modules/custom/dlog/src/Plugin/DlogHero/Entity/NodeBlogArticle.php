@@ -29,8 +29,6 @@ class NodeBlogArticle extends DlogHeroEntityPluginBase {
     $node = $this->getEntity();
     /** @var \Drupal\media\MediaInterface $media */
     $media = $node->get('field_image')->entity;
-
-    return $media->get('field_media_image')->entity->getFileUri();
-
+    return $media->get('field_media_image')->entity->uri->value;
   }
 }

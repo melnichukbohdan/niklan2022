@@ -5,7 +5,8 @@ namespace Drupal\dlog_hero\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\dlog_hero\Plugin\DlogHero\DlogHeroPluginInterface;
-use Drupal\dlog_hero\Plugin\DlogHeroPluginManager;
+use Drupal\dlog_hero\Plugin\DlogHeroEntityPluginManager;
+use Drupal\dlog_hero\Plugin\DlogHeroPathPluginManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -22,16 +23,16 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
   /**
    * The plugin manager for dlog hero entity plugins.
    *
-   * @var \Drupal\dlog_hero\Plugin\DlogHeroPluginManager
+   * @var \Drupal\dlog_hero\Plugin\DlogHeroEntityPluginManager
    */
-  protected DlogHeroPluginManager $dlogHeroEntityManager;
+  protected DlogHeroEntityPluginManager $dlogHeroEntityManager;
 
   /**
    * The plugin manager for dlog hero path plugins.
    *
-   * @var \Drupal\dlog_hero\Plugin\DlogHeroPluginManager
+   * @var \Drupal\dlog_hero\Plugin\DlogHeroPathPluginManager
    */
-  protected DlogHeroPluginManager $dlogHeroPathManager;
+  protected DlogHeroPathPluginManager $dlogHeroPathManager;
 
   /**
    * Constructs a new DlogHeroBlock instance.
@@ -45,20 +46,17 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\dlog_hero\Plugin\DlogHeroPluginManager $dlogHeroEntity
+   * @param \Drupal\dlog_hero\Plugin\DlogHeroEntityPluginManager $dlogHeroEntity
    *   The plugin manager for dlog hero entity plugins.
-   * @param \Drupal\dlog_hero\Plugin\DlogHeroPluginManager $dlogHeroPath
+   * @param \Drupal\dlog_hero\Plugin\DlogHeroPathPluginManager $dlogHeroPath
    *   The plugin manager for dlog hero path plugins.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition,
-                              DlogHeroPluginManager $dlogHeroEntity,
-                              DlogHeroPluginManager $dlogHeroPath) {
+                              DlogHeroEntityPluginManager $dlogHeroEntity,
+                              DlogHeroPathPluginManager $dlogHeroPath) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->dlogHeroEntityManager = $dlogHeroEntity;
     $this->dlogHeroPathManager = $dlogHeroPath;
-
-    ;
-
   }
 
   /**
@@ -71,7 +69,6 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
       $plugin_definition,
       $container->get('plugin.manager.dlog_hero.entity'),
       $container->get('plugin.manager.dlog_hero.path'),
-
     );
   }
 
@@ -98,7 +95,6 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
       $instance = $this->dlogHeroPathManager->createInstance($plugin['id']);
     }
 
-    ksm($instance);
     $build['content'] = [
       '#theme' => 'dlog_hero',
         '#title' => $instance->getHeroTitle(),

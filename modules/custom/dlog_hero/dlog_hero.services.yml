@@ -1,10 +1,23 @@
 services:
+
+  # Old decision
+
+#  plugin.manager.dlog_hero.entity:
+#    class: Drupal\dlog_hero\Plugin\DlogHeroPluginManager
+#    arguments: [entity, '@container.namespaces', '@cache.discovery', '@module_handler',
+#                '@path.current', '@path.matcher', '@current_route_match']
+#
+#  plugin.manager.dlog_hero.path:
+#    class: Drupal\dlog_hero\Plugin\DlogHeroPluginManager
+#    arguments: [path, '@container.namespaces', '@cache.discovery', '@module_handler',
+#                '@path.current', '@path.matcher', '@current_route_match']
+
   plugin.manager.dlog_hero.entity:
-    class: Drupal\dlog_hero\Plugin\DlogHeroPluginManager
-    arguments: [entity, '@container.namespaces', '@cache.discovery', '@module_handler',
+    class: Drupal\dlog_hero\Plugin\DlogHeroEntityPluginManager
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler',
                 '@path.current', '@path.matcher', '@current_route_match']
 
   plugin.manager.dlog_hero.path:
-    class: Drupal\dlog_hero\Plugin\DlogHeroPluginManager
-    arguments: [path, '@container.namespaces', '@cache.discovery', '@module_handler',
+    class: Drupal\dlog_hero\Plugin\DlogHeroPathPluginManager
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler',
                 '@path.current', '@path.matcher', '@current_route_match']

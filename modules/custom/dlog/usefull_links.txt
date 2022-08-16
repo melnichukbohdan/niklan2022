@@ -1,0 +1,2 @@
+1. render image in blog  getHeroImage()
+https://gbyte.dev/blog/get-image-url-from-media-field-twig
