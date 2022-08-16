@@ -49,6 +49,9 @@
         "drupal/twig_tweak": "^3.1",
         "drupal/youtube": "^1.2",
         "drush/drush": "^11.0",
+        "erusev/parsedown": "^1.7",
+        "erusev/parsedown-extra": "^0.8.1",
+        "league/commonmark": "1.4",
         "oomphinc/composer-installers-extender": "^2.0"
     },
     "conflict": {
@@ -60,6 +63,11 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/markdown": {
+                "PHP 8.1 — Issue #3265416": "https://git.drupalcode.org/project/markdown/-/merge_requests/17.diff"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "./"
