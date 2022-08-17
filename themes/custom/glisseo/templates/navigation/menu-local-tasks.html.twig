@@ -1,0 +1,9 @@
+{{ attach_library('glisseo/component.ui.local-tasks') }}
+{% if primary %}
+  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+  <ul class="{{ bem('local-tasks', null, ['primary']) }}">{{ primary }}</ul>
+{% endif %}
+{% if secondary %}
+  <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+  <ul class="{{ bem('local-tasks', null, ['secondary']) }}">{{ secondary }}</ul>
+{% endif %}

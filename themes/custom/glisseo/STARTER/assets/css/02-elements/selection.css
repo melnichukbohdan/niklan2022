@@ -1,0 +1,12 @@
+/**
+ * The styles for selection on pages.
+ */
+:root {
+  --selection-background: var(--color-primary);
+  --selection-color: var(--color-on-primary);
+}
+
+::selection {
+  background: var(--selection-background);
+  color: var(--selection-color);
+}

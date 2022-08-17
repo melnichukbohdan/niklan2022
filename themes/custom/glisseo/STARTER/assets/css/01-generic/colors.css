@@ -1,0 +1,48 @@
+:root {
+  /* Color palette. */
+  --color-white: #ffffff;
+  --color-white-o-25: rgba(255, 255, 255, 0.25);
+  --color-black: #111111;
+  --color-black-o-25: rgba(17, 17, 17, 0.25);
+
+  /* Typography colors. */
+  --color-text: #212121;
+  --color-text-dimmed: #545560;
+  --color-mark-background: #fff59d;
+
+  /* Main colors. */
+  --color-primary: #1565c0;
+  --color-on-primary: var(--color-white);
+  --color-primary-light: #5e92f3;
+  --color-primary-dark: #003c8f;
+
+  --color-secondary: #616161;
+  --color-on-secondary: var(--color-white);
+  --color-secondary-light: #8e8e8e;
+  --color-secondary-dark: #373737;
+
+  --color-background: var(--color-white);
+  --color-surface: var(--color-white);
+
+  --color-error: #d32f2f;
+  --color-on-error: var(--color-white);
+  --color-error-light: #ff6659;
+  --color-error-dark: #9a0007;
+  --color-error-container: #ffcdd2;
+  --color-on-error-container: #7f0000;
+
+  --color-warning: #fbc02d;
+  --color-on-warning: var(--color-black);
+  --color-warning-container: #fff9c4;
+  --color-on-warning-container: #bf360c;
+
+  --color-success: #388e3c;
+  --color-on-success: var(--color-black);
+  --color-success-container: #c8e6c9;
+  --color-on-success-container: #1b5e20;
+
+  /* Utility colors. */
+  --color-border: #bdbdbd;
+  --color-border-dark: #222330;
+  --color-disabled: #eeeeee;
+}

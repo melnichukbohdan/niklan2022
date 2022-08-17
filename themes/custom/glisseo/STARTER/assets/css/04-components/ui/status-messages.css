@@ -1,0 +1,36 @@
+/**
+ * The Drupal status messages.
+ */
+
+:root {
+  --message-background-color: white;
+  --message-color: var(--color-white);
+  --message-border-radius: var(--radius-xs);
+}
+
+.messages {
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--message-border-radius);
+  background: var(--message-background-color);
+  color: var(--message-color);
+}
+
+.messages__title {
+  font-size: var(--font-size-base);
+}
+
+.messages--error {
+  --message-background-color: var(--color-error-container);
+  --message-color: var(--color-on-error-container);
+}
+
+.messages--status {
+  --message-background-color: var(--color-success-container);
+  --message-color: var(--color-on-success-container);
+}
+
+.messages--warning {
+  --message-background-color: var(--color-warning-container);
+  --message-color: var(--color-on-warning-container);
+}

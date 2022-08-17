@@ -1,0 +1,10 @@
+/**
+ * Basic page styles.
+ */
+:root {
+  --page-background: var(--color-background);
+}
+
+body {
+  background: var(--page-background);
+}

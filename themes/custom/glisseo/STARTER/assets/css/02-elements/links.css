@@ -1,0 +1,17 @@
+/**
+ * Hyper text links.
+ */
+:root {
+  --link-color: var(--color-primary);
+  --link-color--hover: var(--color-primary-dark);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  --link-color: var(--link-color--hover);
+  text-decoration: none;
+}
