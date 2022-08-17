@@ -66,6 +66,9 @@
         "patches": {
             "drupal/markdown": {
                 "PHP 8.1 — Issue #3265416": "https://git.drupalcode.org/project/markdown/-/merge_requests/17.diff"
+            },
+            "drupal/photoswipe": {
+                "Support Media and Entity References": "https://www.drupal.org/files/issues/2018-09-24/2977943-33-media-support.patch"
             }
         },
         "drupal-scaffold": {
@@ -73,7 +76,10 @@
                 "web-root": "./"
             }
         },
-        "installer-types": ["bower-asset", "npm-asset"],
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "core": [
                 "type:drupal-core"
