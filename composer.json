@@ -76,7 +76,10 @@
                 "web-root": "./"
             }
         },
-        "installer-types": ["bower-asset", "npm-asset"],
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "core": [
                 "type:drupal-core"
