@@ -112,6 +112,13 @@ header_main:
       css/header/dlog_hero/dlog_hero.css: {}
       css/header/main_styles.css: {}
 
+footer_main:
+  css:
+    theme:
+      css/footer/snippet/footer_main.css: {}
+      css/footer/main_styles.css: {}
+
+
 #google.fonts:
 #  css:
 #    theme:
