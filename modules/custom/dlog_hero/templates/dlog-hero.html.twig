@@ -10,7 +10,7 @@
   {% if image and video %}
     <video poster="{{ image|image_style('thumbnail') }}" autoplay loop muted class="{{ bem_block }}__video"
       {% for video_uri in video %}
-        <source src="{{ file_url('video_uri') }}" type="{{ type }}">
+        <source src="{{ file_url(video_uri) }}" type="{{ type }}">
       {% endfor %}
   {% elseif image %}
     <img src="{{ image|image_style('thumbnail') }}" alt="{{ title }}" class="{{ bem_block }}__image">

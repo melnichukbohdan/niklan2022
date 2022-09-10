@@ -45,7 +45,7 @@ function dlog_hero_theme_suggestions_dlog_hero(array $variables) {
 function template_preprocess_dlog_hero (&$variables) {
   //Image is required for video. It will bi used for poster
   if (!empty($variables['video'])) {
-    if (!empty($variables['image'])) {
+    if (!$variables['image']) {
       $variables['video'] = [];
     }
   }
