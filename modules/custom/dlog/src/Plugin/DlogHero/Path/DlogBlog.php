@@ -31,17 +31,26 @@ class DlogBlog extends DlogHeroPathPluginBase {
   public function getHeroImage() {
     /** @var \Drupal\media\MediaStorage $media_storage */
     $media_storage = $this->getEntityTypeManager()->getStorage('media');
+    //$media_storage->load(id'21') - 21 is ID image in Media what will use on Hero
     $media_image = $media_storage->load('21');
-    return $media_image->get('field_media_image')->entity->get('uri')->value;
+    if ($media_image instanceof MediaInterface) {
+      return $media_image->get('field_media_image')->entity->get('uri')->value;
+    }
   }
 
+  /**
+   * @inerhitDoc
+   */
   public function getHeroVideo() {
     /** @var \Drupal\media\MediaStorage $media_storage */
     $media_storage = $this->getEntityTypeManager()->getStorage('media');
+    //$media_storage->load(id'20') - 20 is ID video in Media
     $media_video = $media_storage->load('20');
-    return [
-      'video/mp4' => $media_video->get('field_media_video_file')->entity->get('uri')->value,
-    ];
+    if ($media_video instanceof MediaInterface) {
+      return [
+        'video/mp4' => $media_video->get('field_media_video_file')->entity->get('uri')->value,
+      ];
+    }
   }
 
 }
