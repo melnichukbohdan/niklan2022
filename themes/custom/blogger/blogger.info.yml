@@ -19,6 +19,7 @@ libraries:
   - blogger/global.style.utilities
   - blogger/header_main
   - blogger/footer_main
+  - blogger/content_main
 
 libraries-extend:
   # These libraries extends empty ones provided by base theme. You can copy

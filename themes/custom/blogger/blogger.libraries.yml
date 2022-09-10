@@ -112,6 +112,11 @@ header_main:
       css/header/dlog_hero/dlog_hero.css: {}
       css/header/main_styles.css: {}
 
+content_main:
+  css:
+    theme:
+      css/content/main_styles.css: {}
+
 footer_main:
   css:
     theme:
