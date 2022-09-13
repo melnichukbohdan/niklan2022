@@ -108,7 +108,7 @@ ajax:
 header_main:
   css:
     theme:
-      css/header/snippet/header_main.css: {}
+      css/header/menu_main/header_main.css: {}
       css/header/dlog_hero/dlog_hero.css: {}
       css/header/main_styles.css: {}
 
@@ -120,7 +120,7 @@ content_main:
 footer_main:
   css:
     theme:
-      css/footer/snippet/footer_main.css: {}
+      css/footer/menu-footer/footer_main.css: {}
       css/footer/main_styles.css: {}
 
 

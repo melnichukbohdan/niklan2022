@@ -61,5 +61,5 @@
   z-index: 5;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(247, 157, 0, 0.2) 0%, rgba(100, 243, 140, 0.2));
+  background: linear-gradient(to bottom, rgba(55, 59, 68, 0.7) 10%,  rgba(66, 134, 244, 0.1))
 }
