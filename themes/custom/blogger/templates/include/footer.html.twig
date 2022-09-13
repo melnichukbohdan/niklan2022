@@ -1,11 +1,11 @@
+{% import '@blogger/include/social-links.html.twig' as social_links %}
 {% set bem_block = 'footer' %}
 
 <footer class="{{ bem_block }}">
-  <div class="{{ bem_block }}__content"t></div>
+  <div class="{{ bem_block }}__content"></div>
+  {{ social_links.links('footer-social') }}
 
-  {{ snippet('social_links' , { bem_block: 'footer-social' }) }}
-
-  {{ footer_memu }}
+  {{ drupal_block('system_menu_block:footer') }}
 
   <div class="{{ bem_block }}__copyright">
     &copy; {{ 'now'|date('Y') }} <strong>Niklan2022</strong> All rights reserved.
