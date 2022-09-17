@@ -116,6 +116,8 @@ content_main:
   css:
     theme:
       css/content/main_styles.css: {}
+      css/content/page/node_page_full.css: {}
+      css/content/paragraph/image_and_text/image_and_text.css: {}
 
 footer_main:
   css:

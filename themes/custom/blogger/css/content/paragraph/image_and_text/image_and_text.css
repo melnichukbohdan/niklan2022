@@ -1,0 +1,57 @@
+/* container styles */
+.paragraph-image-and-text__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* title styles */
+.paragraph-image-and-text-field-title {
+  flex: 0 1 100%;
+  width: 100%;
+}
+
+/* picture and body styles */
+
+
+/* ratio picture to body */
+
+/* The ratio of the picture to the body if the grid is 12 columns. */
+/* If the picture is 4 of 12, the following styles will use */
+.paragraph-image-and-text--image-size-4-12 .paragraph-image-and-text-field-image {
+  flex: 0 1 33%;
+  padding:0 10px 10px 0;
+}
+
+.paragraph-image-and-text--image-size-4-12 .paragraph-image-and-text-field-body {
+  flex: 0 1 66%;
+}
+
+/* If the picture is 4 of 12, the following styles will use */
+.paragraph-image-and-text--image-size-6-12 .paragraph-image-and-text-field-image {
+  flex: 0 1 49%;
+  padding:0 10px 10px 0;
+}
+
+.paragraph-image-and-text--image-size-6-12 .paragraph-image-and-text-field-body {
+  flex: 0 1 50%;
+}
+
+/* If the picture is 4 of 12, the following styles will use */
+.paragraph-image-and-text--image-size-8-12 .paragraph-image-and-text-field-image {
+  flex: 0 1 66%;
+  padding:0 10px 10px 0;
+}
+
+.paragraph-image-and-text--image-size-8-12 .paragraph-image-and-text-field-body {
+  flex: 0 1 33%;
+}
+
+/* picture position */
+/* default picture position left and don't require more settings */
+/* if positions right the following styles will use */
+
+.paragraph-image-and-text--image-position-right .paragraph-image-and-text-field-image {
+  padding:0 0 10px 10px;
+  order:3;
+}
