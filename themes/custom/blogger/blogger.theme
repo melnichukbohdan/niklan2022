@@ -4,3 +4,10 @@
  * @file
  * Custom hooks and functions special for theme.
  */
+
+/**
+ * @implements hook_preprocess_HOOK for field--paragraph--code.html.twig
+ */
+function blogger_preprocess_paragraph__code (array &$variables) {
+  $variables['#attached']['library'][] = 'blogger/paragraph.code';
+}

@@ -119,12 +119,34 @@ content_main:
       css/content/page/node_page_full.css: {}
       css/content/paragraph/image_and_text/image_and_text.css: {}
       css/content/paragraph/gallery/paragraph-gallery.css: {}
+      css/content/paragraph/code/paragraph_code.css: {}
 
 footer_main:
   css:
     theme:
       css/footer/menu-footer/footer_main.css: {}
       css/footer/main_styles.css: {}
+
+paragraph.code:
+  js:
+    assets/js/paragraph-code.js: {}
+  dependencies:
+    - blogger/highlightjs
+    - core/drupal
+    - core/jquery.once
+
+    # Third party libraries
+highlightjs:
+  remote: https://highlightjs.org/
+  version: 9.16.2
+  license:
+    name: BSD
+    gpl-compatible: true
+  css:
+    theme:
+      /libraries/highlightjs/package/styles/arduino-light.css {}
+  js:
+    /libraries/highlightjs/package/lib/highlight.js { minfied: true }
 
 
 #google.fonts:
