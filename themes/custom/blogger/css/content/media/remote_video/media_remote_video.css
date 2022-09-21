@@ -1,0 +1,14 @@
+/* default remote videos styles*/
+.media-remote-video-field-media-oembed-video {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.4%;
+}
+
+.media-oembed-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

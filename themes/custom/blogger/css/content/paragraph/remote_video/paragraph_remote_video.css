@@ -1,0 +1,7 @@
+/* remote video styles if behaviour set the size of the video is 720 px */
+.paragraph-remote-video--video-width-720px .paragraph-remote-video-field-remote-video {
+  max-width: 720px;
+  margin: 0 auto;
+  height: 56.4%;
+  width: 56.4%;
+}

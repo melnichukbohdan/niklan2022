@@ -86,7 +86,7 @@
                 "type:drupal-core"
             ],
             "libraries/{$name}": [
-                "type:drupal-library, type:bower-asset, type:npm-asset"
+                "type:drupal-libraris, type:bower-asset, type:npm-asset"
             ],
             "modules/contrib/{$name}": [
                 "type:drupal-module"
