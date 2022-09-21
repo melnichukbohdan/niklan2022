@@ -62,7 +62,7 @@ class RemoteVideoGalleryBehavior extends ParagraphsBehaviorBase {
           '@count videos per row'),
       ],
       '#default_value' => $paragraph->getBehaviorSetting($this->getPluginId(),
-        'videos_per_row' ,3),
+        'videos_per_row' ,4),
     ];
 
     return $form;

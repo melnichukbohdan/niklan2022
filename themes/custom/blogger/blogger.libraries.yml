@@ -122,6 +122,7 @@ content_main:
       css/content/paragraph/code/paragraph_code.css: {}
       css/content/media/remote_video/media_remote_video.css: {}
       css/content/paragraph/remote_video/paragraph_remote_video.css: {}
+      css/content/paragraph/remote_video_gallery/paragraph_remote_video_gallery.css: {}
 
 footer_main:
   css:
