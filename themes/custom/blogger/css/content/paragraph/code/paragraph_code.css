@@ -1,10 +1,14 @@
 .paragraph-code__content {
   border: 1px solid #b4b0b0;
   border-radius: 4px;
+
 }
 
 .paragraph-code__field-title {
   background: #e2e1e1;
   font-weight: bold;
   padding-left: 33px;
-}
+
+}.paragraph-code-field-code {
+   text-align: left;
+ }

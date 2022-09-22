@@ -1,0 +1,20 @@
+/**
+ * @file
+ * Styles for ParagraphStyleBehavior.
+ */
+
+.paragraph-style--title-bold {
+  font-weight: bold;
+}
+.paragraph-style--title-centered {
+  text-align: center;
+}
+.paragraph-style--style-black {
+  background: #0c0d0e;
+  color: white;
+}
+
+.paragraph-style--style-black .paragraph-code__field-title {
+  background: #0c0d0e;
+  color: white;
+}
