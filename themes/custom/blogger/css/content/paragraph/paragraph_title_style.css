@@ -3,12 +3,22 @@
  * Styles for ParagraphStyleBehavior.
  */
 
-.paragraph-style--title-bold {
+.paragraph-style--title-bold .paragraph-title {
+    font-weight: bold;
+}
+
+.paragraph-style--title-bold .paragraph-code__field-title {
   font-weight: bold;
 }
-.paragraph-style--title-centered {
+
+.paragraph-style--title-centered .paragraph-title {
   text-align: center;
 }
+
+.paragraph-style--title-centered .paragraph-code__field-title {
+  text-align: center;
+}
+
 .paragraph-style--style-black {
   background: #0c0d0e;
   color: white;
