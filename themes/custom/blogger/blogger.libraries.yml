@@ -115,6 +115,8 @@ header_main:
 content_main:
   css:
     theme:
+      css/content/layout/app.css: { }
+      css/content/layout/main_layout.css: { }
       css/content/paragraph/paragraph_title_style.css: {}
       css/content/main_styles.css: {}
       css/content/page/node_page_full.css: {}
@@ -135,22 +137,22 @@ paragraph.code:
   js:
     assets/js/paragraph-code.js: {}
   dependencies:
-    - blogger/highlightjs
+#    - blogger/highlightjs
     - core/drupal
     - core/jquery.once
 
     # Third party libraries
-highlightjs:
-  remote: https://highlightjs.org/
-  version: 9.16.2
-  license:
-    name: BSD
-    gpl-compatible: true
-  css:
-    theme:
-      /libraries/highlightjs/package/styles/arduino-light.css {}
-  js:
-    /libraries/highlightjs/package/lib/highlight.js { minfied: true }
+#highlightjs:
+#  remote: https://highlightjs.org/
+#  version: 9.16.2
+#  license:
+#    name: BSD
+#    gpl-compatible: true
+#  css:
+#    theme:
+#      /libraries/highlightjs/package/styles/arduino-light.css {}
+#  js:
+#    /libraries/highlightjs/package/lib/highlight.js { minfied: true }
 
 
 #google.fonts:

@@ -1,10 +1,9 @@
 .main-layout {
   display: flex;
   justify-content: center ;
-  padding-top: 40px ;
-  padding-bottom: 40px ;
 }
 
 .region-content {
   max-width: 1110px;
 }
+
