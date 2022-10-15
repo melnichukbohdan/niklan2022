@@ -2,7 +2,8 @@
 <div class="{{ bem_block }}">
   {% include '@blogger/include/header.html.twig' %}
 
-  <main class="{{ bem_block }}__content main-layout" >
+
+  <main {{ main_layout_attributes.addClass(bem_block ~ '__content') }} >
     <div class="main-layout__inner">
       {{ page.sidebar_first }}
       {{ page.content }}
