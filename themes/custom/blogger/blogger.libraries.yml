@@ -115,10 +115,11 @@ header_main:
 content_main:
   css:
     theme:
-      css/content/layout/app.css: { }
-      css/content/layout/main_layout.css: { }
-      css/content/paragraph/paragraph_title_style.css: {}
       css/content/main_styles.css: {}
+      css/content/layout/app.css: {}
+      css/content/layout/main_layout.css: {}
+      css/content/paragraph/paragraph_title_style.css: {}
+      css/content/view/view-blog-article--page.css: {}
       css/content/page/node_page_full.css: {}
       css/content/paragraph/image_and_text/image_and_text.css: {}
       css/content/paragraph/gallery/paragraph-gallery.css: {}

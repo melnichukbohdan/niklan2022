@@ -45,6 +45,7 @@
         "drupal/redirect": "^1.7",
         "drupal/robotstxt": "^1.4",
         "drupal/scheduler": "^1.4",
+        "drupal/scss_compiler": "^1.1",
         "drupal/snippet_manager": "^1.8",
         "drupal/swiftmailer": "^2.2",
         "drupal/twig_tweak": "^3.1",

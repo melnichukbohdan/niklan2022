@@ -1,7 +1,16 @@
 {% extends 'node.html.twig' %}
 {% block node %}
-{#  {% include '@stable9/field/field--node--title.html.twig' %}#}
- {{ url }}
- {{ content }}
+
+  {% set bem_block = 'node-blog-article-teaser' %}
+  <div class="{{ bem_block }}__image">{{ content.field_image }}</div>
+
+  <h2 class="{{ bem_block }}__title"><a href="{{ url }}">{{ label }}</a></h2>
+
+  <div class="{{ bem_block }}__tags">{{ content.field_tags }}</div>
+
+  <div class="{{ bem_block }}__meta">
+    <div class="{{ bem_block }}__created">{{ node.getCreatedTime|date('d.m.y') }}</div>
+    {{ content.estimated_read_time }}
+  </div>
 
 {% endblock node %}

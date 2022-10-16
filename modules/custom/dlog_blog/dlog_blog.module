@@ -38,7 +38,7 @@ function dlog_blog_node_view(array &$build, NodeInterface $node, EntityViewDispl
     $estimated_read_time = _dlog_blog_estimated_read_time($node_paragraphs);
     $build['estimated_read_time'] = [
       '#type' => 'inline_template',
-      '#template' => '<div class="{{ bem_block }}__estimated_read_time"> {{ estimated_read_time }} </div>',
+      '#template' => '<div class="{{ bem_block }}__estimated_read_time"> {{ estimated_read_time }} min.</div>',
       '#context' => [
         'bem_block' => $bem_block,
         'estimated_read_time' => $estimated_read_time,

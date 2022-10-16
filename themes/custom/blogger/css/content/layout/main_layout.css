@@ -1,18 +1,23 @@
 .main-layout__inner {
   display: flex;
   flex-direction: row-reverse;
-  padding: 48px 18px;
+  justify-content: center;
+  padding: 30px 18px;
   background: white;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
   margin: -100px -8px 0 -8px;
   z-index: 15;
-  width: 1100px;
 }
 
 .main-layout--sidebar-first .region-sidebar-first {
   max-width: 33.333%;
   width: 100%;
   padding: 0 8px;
+}
+
+.main-layout--sidebar-first .region-content {
+  max-width: 66.666%;
+  width: 100%;
 }
 
 .main-layout--sidebar-first .node-blog-article-teaser {
