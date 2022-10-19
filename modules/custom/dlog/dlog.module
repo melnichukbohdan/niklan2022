@@ -17,6 +17,7 @@ function dlog_theme($existing, $type, $theme, $path) {
       'variables' => [
         'entity' =>NUll,
       ],
+      'pattern' => 'dlog_previous_next__'
     ],
   ];
 }
@@ -61,35 +62,6 @@ function template_preprocess_dlog_previous_next(&$variables) {
     $variables['previous']['entity'] = $previous_entity;
     $variables['previous']['label'] = $previous_entity->label();
     $variables['previous']['url'] = $previous_entity->toUrl()->toString(TRUE)->getGeneratedUrl();
-  }
-}
-
-/**
- * Implements hook_entity_extra_field_info().
- */
-function dlog_entity_extra_field_info() {
-  $extra = [];
-
-  foreach (NodeType::loadMultiple() as $bundle) {
-    $extra['node'][$bundle->id()]['display']['previous_next'] = [
-      'label' => t('Buttons to previous and next entity'),
-      'weight' => 100,
-      'visible' => FAlSE,
-    ];
-  }
-
-  return $extra;
-}
-
-/**
- * Implements hook_entity_view().
- */
-function dlog_node_view(array &$build, NodeInterface $node, EntityViewDisplayInterface $display, $view_mode) {
-  if ($display->getComponent('previous_next')) {
-    $build['previous_next'] = [
-      '#theme' => 'dlog_previous_next',
-      '#entity' => $node,
-    ];
   }
 }
 

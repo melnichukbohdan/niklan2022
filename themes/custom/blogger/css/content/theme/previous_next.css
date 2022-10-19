@@ -1,0 +1,85 @@
+.previous_next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.previous_next__previous, .previous_next__next {
+  width: 47%;
+}
+
+.previous_next--blog-article .previous_next__previous, .previous_next--blog-article .previous_next__next {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #e3e0e0;
+}
+.previous_next--blog-article .previous_next__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  height: 100%;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #e3e0e0;
+}
+.previous_next--blog-article .previous_next__link--next {
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+.previous_next--blog-article .previous_next__promo-image {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+}
+.previous_next--blog-article .previous_next__promo-image:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.previous_next--blog-article .previous_next__icon {
+  position: relative;
+  z-index: 10;
+}
+.previous_next--blog-article .previous_next__icon--previous {
+  background: url(../../../assets/icons/pointers/arrow-left-circle-outline.png) 0 0 no-repeat;
+  width: 30px;
+  height: 24px;
+  margin: 0 20px 0 0;
+}
+.previous_next--blog-article .previous_next__icon--next {
+  background: url(../../../assets/icons/pointers/arrow-right-bold-circle-outline.png) 0 0 no-repeat;
+  width: 30px;
+  height: 24px;
+  margin: 0 0 0 20px;
+}
+.previous_next--blog-article .previous_next__content {
+  position: relative;
+  z-index: 10;
+}
+.previous_next--blog-article .previous_next__content--next {
+  text-align: right;
+}
+.previous_next--blog-article .previous_next__tag {
+  color: green;
+  font-weight: 700;
+}
+.previous_next--blog-article .previous_next__tag:not(:last-child)::after {
+  content: ",";
+  display: inline;
+}

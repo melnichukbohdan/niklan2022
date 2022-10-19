@@ -118,8 +118,10 @@ content_main:
       css/content/main_styles.css: {}
       css/content/layout/app.css: {}
       css/content/layout/main_layout.css: {}
+      css/content/theme/previous_next.css: {}
       css/content/view/view-blog-article--page.css: {}
       css/content/node/node-blog-article-teaser.css: {}
+      css/content/node/node-blog-article-full.css: {}
       css/content/page/node_page_full.css: {}
       css/content/paragraph/paragraph_title_style.css: {}
       css/content/paragraph/image_and_text/image_and_text.css: {}

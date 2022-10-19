@@ -23,6 +23,12 @@ function dlog_blog_entity_extra_field_info () {
         'weight' => 100,
         'visible' => FALSE,
       ];
+
+      $extra['node']['blog_article']['display']['previous_next_article'] = [
+        'label' => t('Buttons to previous and next blog article'),
+        'weight' => 100,
+        'visible' => FAlSE,
+      ];
     }
 
   return $extra;
@@ -45,6 +51,14 @@ function dlog_blog_node_view(array &$build, NodeInterface $node, EntityViewDispl
       ],
     ];
   }
+
+  if ($display->getComponent('previous_next_article')) {
+    $build['previous_next_article'] = [
+      '#theme' => 'dlog_previous_next__blog_article',
+      '#entity' => $node,
+    ];
+  }
+
 }
 
 /**

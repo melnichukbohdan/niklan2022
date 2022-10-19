@@ -1,5 +1,5 @@
 {% set bem_block = 'previous_next' %}
-<div attributes.addClass(bem_block) >
+<div class="{{ bem_block }}" >
   <div class="{{ bem_block }}__previous">
     {% if previous %}
     <a href="{{ previous.url }}" class="{{ bem_block }}__link {{ bem_block }}__link--previous">
