@@ -31,10 +31,17 @@
   background-color: #3857ef;
   border-radius: 2px;
   padding: 2px 6px;
+  margin: 2px 0;
+}
+.node-blog-article-teaser__tags a:hover {
+  background-color: #cb6d5e;
 }
 .node-blog-article-teaser__title {
   font-size: 20px;
   font-weight: 700;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 .node-blog-article-teaser__title a {
   color: black;

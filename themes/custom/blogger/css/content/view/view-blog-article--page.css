@@ -9,4 +9,16 @@
   max-width: 33.333%;
   width: auto;
   margin: 0 0 8px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.blog-article__content .views-row > article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }

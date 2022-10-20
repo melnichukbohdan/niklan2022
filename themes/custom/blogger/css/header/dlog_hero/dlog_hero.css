@@ -1,21 +1,21 @@
 .block--dlog-hero {
   position: relative;
   z-index: 0;
-  margin-top: -30px;
-  height: 600px;
-  padding-bottom: 100px;
+  margin-top: -42px;
+  min-height: 600px;
   overflow: hidden;
 }
 
 .block--dlog-hero > {
   z-index: 10;
+
 }
 
 .dlog-hero__content {
   position: relative;
   z-index: 15;
-  top: 150px;
   text-align: center;
+  padding: 142px 0 200px 0;
 }
 
 .dlog-hero__title {
@@ -82,5 +82,5 @@
 }
 
 .dlog-hero__tag:hover {
-  background-color: rgb(55, 59, 68);
+  background-color: #cb6d5eff;
 }

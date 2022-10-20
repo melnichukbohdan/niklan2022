@@ -50,7 +50,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, rgba(82, 135, 231, 0.2), rgba(213, 72, 207, 0.2));
 }
 .previous_next--blog-article .previous_next__icon {
   position: relative;
@@ -76,7 +76,7 @@
   text-align: right;
 }
 .previous_next--blog-article .previous_next__tag {
-  color: green;
+  color: #cb6d5e;
   font-weight: 700;
 }
 .previous_next--blog-article .previous_next__tag:not(:last-child)::after {
