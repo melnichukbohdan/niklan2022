@@ -16,6 +16,7 @@ function dlog_hero_theme($existing, $type, $theme, $path) {
         'subtitle' => NULL,
         'image' => NULL,
         'video' => [],
+        'plugin_id' => NULL,
       ],
       'pattern' => 'dlog_hero__'
     ],
@@ -28,12 +29,24 @@ function dlog_hero_theme($existing, $type, $theme, $path) {
 function dlog_hero_theme_suggestions_dlog_hero(array $variables) {
   $suggestions = [];
 
+  if (!empty($variables['plugin_id'])) {
+    $suggestions[] = 'dlog_hero__' . $variables['plugin_id'];
+  }
+
   if (!empty($variables['image'])) {
     $suggestions[] = 'dlog_hero__image';
   }
 
   if (!empty($variables['image']) && !empty($variables['video'])) {
     $suggestions[] = 'dlog_hero__video';
+  }
+
+  if (!empty($variables['image'])) {
+    $suggestions[] = 'dlog_hero__'. $variables['plugin_id'] . '__image';
+  }
+
+  if (!empty($variables['image']) && !empty($variables['video'])) {
+    $suggestions[] = 'dlog_hero__'. $variables['plugin_id'] . '__video';
   }
 
   return $suggestions;

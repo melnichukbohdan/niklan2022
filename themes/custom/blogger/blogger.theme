@@ -73,6 +73,26 @@ function blogger_preprocess_dlog_previous_next__blog_article (array &$variables)
         'path' => $tag_term->toUrl()->toString(),
       ];
     }
-    $variables['previous']['tags'] = $tags;
+    $variables['tags'] = $tags;
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for dlog-hero--dlog-node-blog-article.html.twig
+ */
+function blogger_preprocess_dlog_hero__dlog_node_blog_article (array &$variables) {
+  $tags = [];
+  /**@var NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node instanceof NodeInterface) {
+    /**@var \Drupal\taxonomy\TermInterface $tag_term */
+    foreach ($node->get('field_tags')->referencedEntities() as $tag_term) {
+      $tags[] = [
+        'label' => $tag_term->label(),
+        'path' => $tag_term->toUrl()->toString(),
+      ];
+    }
+  }
+  $variables['tags'] = $tags;
 }

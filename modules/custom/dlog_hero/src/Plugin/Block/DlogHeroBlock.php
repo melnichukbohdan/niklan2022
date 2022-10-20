@@ -97,11 +97,11 @@ class DlogHeroBlock extends BlockBase implements ContainerFactoryPluginInterface
 
     $build['content'] = [
       '#theme' => 'dlog_hero',
-        '#title' => $instance->getHeroTitle(),
-        '#subtitle' => $instance->getHeroSubtitle(),
-        '#image' => $instance->getHeroImage(),
-        '#video' => $instance->getHeroVideo(),
-
+      '#title' => $instance->getHeroTitle(),
+      '#subtitle' => $instance->getHeroSubtitle(),
+      '#image' => $instance->getHeroImage(),
+      '#video' => $instance->getHeroVideo(),
+      '#plugin_id' => $instance->getPluginId(),
     ];
     $build['#cache']['max-age'] = 0;
     return $build;
