@@ -119,6 +119,7 @@ content_main:
       css/content/layout/app.css: {}
       css/content/layout/main_layout.css: {}
       css/content/theme/previous_next.css: {}
+      css/content/theme/social_share.css: {}
       css/content/view/view-blog-article--page.css: {}
       css/content/node/node-blog-article-teaser.css: {}
       css/content/node/node-blog-article-full.css: {}

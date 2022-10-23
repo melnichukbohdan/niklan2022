@@ -1,0 +1,24 @@
+.dlog_social_share {
+  display: flex;
+  &__label {
+    color: #696666;
+    font-size: 34px;
+    margin: 0 20px 0 0 ;
+  }
+  &__links {
+    display: flex;
+    font-size: 24px;
+  }
+  &__link {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 5px 0 0 10px;
+    &:first-child {
+      margin: 5px 0 0 0;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
