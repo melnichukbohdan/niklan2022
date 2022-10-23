@@ -73,7 +73,7 @@ function blogger_preprocess_dlog_previous_next__blog_article (array &$variables)
         'path' => $tag_term->toUrl()->toString(),
       ];
     }
-    $variables['tags'] = $tags;
+    $variables['previous']['tags'] = $tags;
   }
 }
 
