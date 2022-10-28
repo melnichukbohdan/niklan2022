@@ -8,7 +8,7 @@
 /* four pictures in a row */
 /* media image style Scale and crop 262×262 */
 .paragraph-gallery--images-per-row-4 .paragraph-gallery-field-gallery__item {
-  flex: 0 1 262px;
+  flex: 0 1 257px;
   margin: 10px;
 }
 
