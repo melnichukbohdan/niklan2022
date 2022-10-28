@@ -24,7 +24,16 @@ function dlog_theme($existing, $type, $theme, $path) {
         'url' => NULL,
         'label' => NULL,
       ]
-    ]
+    ],
+    'dlog_label_with_icon_media_formatter' => [
+      'variables' => [
+        'url' => NULL,
+        'label' => NULL,
+        'filesize' => NULL,
+        'media_type' => NULL,
+        'mime_type' => NULL,
+      ],
+    ],
   ];
 }
 
@@ -78,5 +87,39 @@ function dlog_imagemagick_arguments_alter(ImagemagickExecArguments $arguments, $
   $arguments->add('-sampling-factor 4:2:0');
   $arguments->add('-interlace Plane');
   $arguments->add('-strip');
+}
+
+/**
+ * Implements hook_template_preprocess_HOOK() for dlog-label-with-icon-media-formatter.html.twig.
+ */
+function template_preprocess_dlog_label_with_icon_media_formatter(&$variables) {
+  $mimeType = $variables['mime_type'];
+
+  $mimeAssociation = [
+    'application/octet-stream' => 'application-octet-stream.svg',
+    'application/zip' => 'application-zip.svg',
+    'video/mp4' => 'video-mp4.svg',
+    'image/jpeg' => 'image-jpeg.svg',
+    'image/png' => 'image-png.svg',
+    'video/x-wmv' => 'video-mp4.svg',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => 'application-vnd.ms-excel.addin.macroenabled.12.svg',
+    'application/msword' => 'application-msword.svg',
+    'application/pdf' => 'application-pdf.svg',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'application-vnd.openxmlformats-officedocument.wordprocessingml.document.svg',
+    'audio/x-mpeg' => 'audio-x-mpeg',
+    'audio/x-wav' => 'audio-x-wav.svg',
+    'text/csv' => 'text-csv.svg',
+    'text/plain' => 'text-plain.svg',
+  ];
+
+  $iconsPath = 	\Drupal::service('extension.list.theme')->getPath('blogger') . '/assets/images/mimetypes/';
+
+  if (!array_key_exists($mimeType, $mimeAssociation)) {
+    $currentIconFilename = 'application-octet-stream.svg';
+  } else {
+    $currentIconFilename = $mimeAssociation[$mimeType];
+  }
+
+  $variables['mime_icon_path'] = $iconsPath . $currentIconFilename;
 }
 

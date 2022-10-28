@@ -1,0 +1,24 @@
+.dlog_label_with_icon_media_formatter {
+  display: flex;
+  align-items: center;
+  &__icon {
+    margin: 0 10px 0 0;
+    flex: 0 0 70px;
+    width: 70px;
+    & svg {
+      width: 100%;
+    }
+  }
+  &__label {
+    display: block;
+    color: #696666;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 3px 0 0 0;
+  }
+  &__filesize {
+    color: #696666;
+    font-size: 14px;
+  }
+}

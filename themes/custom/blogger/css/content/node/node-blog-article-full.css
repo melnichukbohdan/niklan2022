@@ -7,3 +7,26 @@
 .node-blog-article-full .previous_next {
   margin-bottom: 50px;
 }
+.node-blog-article-full .node-blog-article-field-attachments {
+  margin: 0 -18px 36px -18px;
+  padding: 18px;
+  background: #fcf6f6;
+  border-top: 1px solid #f5eaea;
+  border-bottom: 1px solid #f5eaea;
+}
+.node-blog-article-full .node-blog-article-field-attachments__label {
+  font-size: 24px;
+  text-align: center;
+  margin: 0 0 18px 0;
+}
+.node-blog-article-full .node-blog-article-field-attachments__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.node-blog-article-full .node-blog-article-field-attachments__item {
+  width: 33.333%;
+  margin: 10px 0;
+}
