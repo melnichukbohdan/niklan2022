@@ -10,6 +10,19 @@ use Drupal\node\NodeInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Component\Utility\Html;
 
+/**
+ * Implements hook_theme().
+ */
+function dlog_blog_theme($existing, $type, $theme, $path) {
+  return [
+    'dlog_blog_related_posts' => [
+      'variables' => [
+        'max_related_posts' => 4,
+        'max_exact_same_tags_posts' => 2,
+      ],
+    ],
+  ];
+}
 
 /**
  * Implements hook_entity_extra_field_info().
@@ -32,6 +45,12 @@ function dlog_blog_entity_extra_field_info () {
 
       $extra['node']['blog_article']['display']['social_share'] = [
         'label' => t('Link to share article'),
+        'weight' => 100,
+        'visible' => FAlSE,
+      ];
+
+      $extra['node']['blog_article']['display']['related_posts'] = [
+        'label' => t('Related posts'),
         'weight' => 100,
         'visible' => FAlSE,
       ];
@@ -72,6 +91,12 @@ function dlog_blog_node_view(array &$build, NodeInterface $node, EntityViewDispl
       '#label' => $node->label(),
     ];
   }
+
+  if ($display->getComponent('related_posts')) {
+    $build['related_posts'] = [
+      '#theme' => 'dlog_blog_related_posts',
+    ];
+  }
 }
 
 /**
@@ -105,4 +130,29 @@ function _dlog_blog_estimated_read_time(array $paragraphs) {
      $estimated_read_time = 1;
    }
   return $estimated_read_time;
+}
+
+/**
+ * Implement hook_preprocess_HOOK for dlog-blog-related-posts.html.twig
+ */
+function template_preprocess_dlog_blog_related_posts (array &$variables){
+  $items = [];
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    /** @var \Drupal\node\NodeInterface $node_storage */
+    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+    /** @var \Drupal\node\NodeViewBuilder $node_view_builder */
+    $node_view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    /** @var \Drupal\dlog_blog\Service\BlogManagerInterface $blog_manager */
+    $blog_manager = \Drupal::service('dlog_blog.manager');
+    $related_posts_ids = $blog_manager->getRelatedPosts($node, $variables['max_related_posts'], $variables['max_exact_same_tags_posts']);
+          foreach ($related_posts_ids as $id) {
+        /** @var NodeInterface $related_post */
+        $related_post = $node_storage->load($id);
+        $items[] = $node_view_builder->view($related_post, 'teaser');
+      }
+  }
+
+  $variables['items'] = $items;
 }
