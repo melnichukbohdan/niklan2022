@@ -1,0 +1,48 @@
+.dlog-blog-random-post__title {
+  font-weight: 700;
+  text-align: center;
+  font-size: 20px;
+  margin: 24px 0 24px 0;
+  text-transform: uppercase;
+  position: relative;
+}
+.dlog-blog-random-post__title span {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 16px;
+}
+.dlog-blog-random-post__title:before {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #ccc6c6;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 5;
+}
+.dlog-blog-random-post__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.dlog-blog-random-post__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 243px;
+}
+.dlog-blog-random-post__item > article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
