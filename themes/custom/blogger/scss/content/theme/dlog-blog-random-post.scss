@@ -1,4 +1,4 @@
-.dlog-blog-related-post {
+.dlog-blog-random-post {
   &__title {
     font-weight: 700;
     text-align: center;
@@ -14,18 +14,18 @@
     }
 
 
-  &:before {
-    content: '';
-    height: 2px;
-    width: 100%;
-    background-color: #ccc6c6;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50% ;
-    z-index: 5;
+    &:before {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: #ccc6c6;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50% ;
+      z-index: 5;
   }
-}
+  }
   &__items {
     display: flex;
     justify-content: space-between;
@@ -33,5 +33,9 @@
   &__item {
     display: flex;
     width: 243px;
+    & > article {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

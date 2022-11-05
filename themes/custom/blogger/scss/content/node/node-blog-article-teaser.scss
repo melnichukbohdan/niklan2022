@@ -1,4 +1,10 @@
+article.node-blog-article-teaser {
+  display: flex;
+  flex-direction: column;
+}
 .node-blog-article-teaser {
+
+
   margin-bottom: 20px;
   &__image {
     border-radius: 4px;

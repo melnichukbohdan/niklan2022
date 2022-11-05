@@ -122,6 +122,7 @@ content_main:
       css/content/theme/social_share.css: {}
       css/content/theme/dlog_label_with_icon_media_formatter.css: {}
       css/content/theme/dlog-blog-related-post.css: {}
+      css/content/theme/dlog-blog-random-post.css: {}
       css/content/view/view-blog-article--page.css: {}
       css/content/node/node-blog-article-teaser.css: {}
       css/content/node/node-blog-article-full.css: {}

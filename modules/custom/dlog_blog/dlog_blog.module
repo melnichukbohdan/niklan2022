@@ -21,6 +21,9 @@ function dlog_blog_theme($existing, $type, $theme, $path) {
         'max_exact_same_tags_posts' => 2,
       ],
     ],
+    'dlog_blog_random_posts' => [
+      'variables' => [],
+    ],
   ];
 }
 
@@ -51,6 +54,12 @@ function dlog_blog_entity_extra_field_info () {
 
       $extra['node']['blog_article']['display']['related_posts'] = [
         'label' => t('Related posts'),
+        'weight' => 100,
+        'visible' => FAlSE,
+      ];
+
+      $extra['node']['blog_article']['display']['random_posts'] = [
+        'label' => t('Random posts'),
         'weight' => 100,
         'visible' => FAlSE,
       ];
@@ -95,6 +104,12 @@ function dlog_blog_node_view(array &$build, NodeInterface $node, EntityViewDispl
   if ($display->getComponent('related_posts')) {
     $build['related_posts'] = [
       '#theme' => 'dlog_blog_related_posts',
+    ];
+  }
+
+  if ($display->getComponent('random_posts')) {
+    $build['random_posts'] = [
+      '#theme' => 'dlog_blog_random_posts',
     ];
   }
 }
@@ -146,12 +161,41 @@ function template_preprocess_dlog_blog_related_posts (array &$variables){
     $node_view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
     /** @var \Drupal\dlog_blog\Service\BlogManagerInterface $blog_manager */
     $blog_manager = \Drupal::service('dlog_blog.manager');
+
     $related_posts_ids = $blog_manager->getRelatedPosts($node, $variables['max_related_posts'], $variables['max_exact_same_tags_posts']);
+
           foreach ($related_posts_ids as $id) {
         /** @var NodeInterface $related_post */
         $related_post = $node_storage->load($id);
         $items[] = $node_view_builder->view($related_post, 'teaser');
       }
+  }
+
+  $variables['items'] = $items;
+}
+
+/**
+ * Implement hook_preprocess_HOOK for dlog_blog_random_posts.html.twig
+ */
+function template_preprocess_dlog_blog_random_posts (&$variables) {
+  $items = [];
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    /** @var \Drupal\node\NodeInterface $node_storage */
+    $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+    /** @var \Drupal\node\NodeViewBuilder $node_view_builder */
+    $node_view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    /** @var \Drupal\dlog_blog\Service\BlogManagerInterface $blog_manager */
+    $blog_manager = \Drupal::service('dlog_blog.manager');
+
+    $random_posts_ids = $blog_manager->getRandomPosts([$node->id()],4 );
+
+    foreach ($random_posts_ids as $id) {
+      /** @var NodeInterface $random_post */
+      $random_post = $node_storage->load($id);
+      $items[] = $node_view_builder->view($random_post, 'teaser');
+    }
   }
 
   $variables['items'] = $items;

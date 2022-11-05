@@ -7,10 +7,6 @@
       width: auto;
       margin: 0 0 8px 0;
       display: flex;
-      & > article {
-        display: flex;
-        flex-direction: column;
-      }
     }
   }
 }
