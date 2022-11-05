@@ -81,7 +81,6 @@ class BlogManager implements BlogManagerInterface {
         }
         $query = $this->nodeStorage->getQuery()
           ->condition('status', NodeInterface::PUBLISHED)
-          ->condition('nid', $node->id(), '<>')
           ->condition('type' , 'blog_article')
           ->condition('field_tags', $fieldTagsIds , "IN")
           ->range(0 , $limit)
@@ -138,8 +137,8 @@ class BlogManager implements BlogManagerInterface {
       if ($counter < $max) {
         $excludeIds = [];
         if (!empty($exactSame)) {
-          $current_node = $node->id();
-          $excludeIds['0'] = $current_node;
+          $currentNode = $node->id();
+          $excludeIds['current_node'] = $currentNode;
           $excludeIds += $exactSame;
         }
 
@@ -151,8 +150,6 @@ class BlogManager implements BlogManagerInterface {
       if ($counter < $max) {
         if (!empty($sameTags)) {
           $excludeIds += $sameTags;
-          $current_node = $node->id();
-          $excludeIds['current_node'] = $current_node;
         }
 
         $random = $this->getRandomPosts($excludeIds, ($max - $counter));
