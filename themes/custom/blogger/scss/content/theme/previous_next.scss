@@ -73,6 +73,10 @@
       z-index: 10;
       &--next {
         text-align: right;
+        line-height: 20px;
+      }
+      &--previous {
+        line-height: 20px;
       }
     }
 

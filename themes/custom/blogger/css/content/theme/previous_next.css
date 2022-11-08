@@ -74,6 +74,10 @@
 }
 .previous_next--blog-article .previous_next__content--next {
   text-align: right;
+  line-height: 20px;
+}
+.previous_next--blog-article .previous_next__content--previous {
+  line-height: 20px;
 }
 .previous_next--blog-article .previous_next__tag {
   color: #cb6d5e;
