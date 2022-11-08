@@ -109,7 +109,10 @@ function dlog_blog_node_view(array &$build, NodeInterface $node, EntityViewDispl
 
   if ($display->getComponent('random_posts')) {
     $build['random_posts'] = [
-      '#theme' => 'dlog_blog_random_posts',
+      '#create_placeholder' => TRUE,
+      '#lazy_builder' => [
+        'dlog_blog.lazy_builder:randomBlogPosts', [],
+      ],
     ];
   }
 }

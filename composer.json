@@ -24,6 +24,7 @@
         "drupal/adminimal_theme": "^1.6",
         "drupal/advagg": "^4.1",
         "drupal/antibot": "^2.0",
+        "drupal/big_pipe_sessionless": "^2.0",
         "drupal/block_visibility_groups": "^1.4",
         "drupal/contact_emails": "^1.20",
         "drupal/contact_storage": "^1.2",
