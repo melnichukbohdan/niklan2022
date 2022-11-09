@@ -1,0 +1,7 @@
+name: DLOG comments
+type: module
+description: The comments custom code
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:comment

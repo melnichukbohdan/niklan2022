@@ -1,0 +1,15 @@
+.comment_comment_form__author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.comment_comment_form__author .form-item input {
+  width: 350px;
+}
+
+.form-textarea-wrapper textarea {
+  width: 100%;
+}

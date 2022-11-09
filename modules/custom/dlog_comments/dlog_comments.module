@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for DLOG - Comments module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function dlog_comments_theme($existing, $type, $theme, $path) {
+  return [
+    'comment_form__node__blog_article__comment' => [
+      'render element' => 'form',
+    ]
+  ];
+}
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter() for text_textarea.
+ */
+function dlog_comments_field_widget_text_textarea_form_alter(&$element, FormStateInterface $form_state, $context) {
+  /** @var \Drupal\Core\Field\FieldItemListInterface $items */
+  $items = $context['items'];
+  $field_name = $items->getFieldDefinition()->getName();
+
+  if ($field_name == 'comment_body') {
+    $element['#after_build'][] = '_dlog_comments_remove_text_textarea_format';
+  }
+}
+
+/**
+ * After build callback  to remove text_textarea format.
+ */
+function _dlog_comments_remove_text_textarea_format ($element, FormStateInterface $form_state) {
+
+  if ($element['#type'] == 'text_format') {
+    hide($element['format']);
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for comment-form.
+ */
+function dlog_comments_form_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['author']['name']['#attributes']['placeholder'] = 'Boris Jonson';
+  $form['author']['mail']['#attributes']['placeholder'] = 'borisjonson@jonsonyk.com.ua';
+  unset($form['author']['mail']['#description']);
+  $form['author']['homepage']['#attributes']['placeholder'] = 'https://jonsonyk.com.ua';
+}

@@ -1,0 +1,14 @@
+.comment_comment_form {
+  &__author {
+    display: flex;
+    justify-content: space-between;
+
+    & .form-item input {
+        width: 350px;
+    }
+  }
+}
+
+.form-textarea-wrapper textarea {
+  width: 100%;
+}
