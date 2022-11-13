@@ -35,3 +35,9 @@
 .node-blog-article-full .dlog-blog-random-post {
   margin: -24px 0 0 0;
 }
+.node-blog-article-full .node-blog-article-comment {
+  margin: -24px 0 0 0;
+}
+.node-blog-article-full .node-blog-article-comment .indented {
+  margin-left: 48px;
+}

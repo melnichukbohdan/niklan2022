@@ -123,10 +123,12 @@ content_main:
       css/content/theme/dlog_label_with_icon_media_formatter.css: {}
       css/content/theme/dlog-blog-related-post.css: {}
       css/content/theme/dlog-blog-random-post.css: {}
+      css/content/theme/node-blog-article-comment.css: {}
       css/content/view/view-blog-article--page.css: {}
       css/content/node/node-blog-article-teaser.css: {}
       css/content/node/node-blog-article-full.css: {}
       css/content/page/node_page_full.css: {}
+      css/content/comment/comment-comment.css: {}
       css/content/paragraph/paragraph_title_style.css: {}
       css/content/paragraph/image_and_text/image_and_text.css: {}
       css/content/paragraph/gallery/paragraph-gallery.css: {}

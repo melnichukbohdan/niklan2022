@@ -1,0 +1,25 @@
+.node-blog-article-comment__title, .node-blog-article-comment__form-title {
+  font-weight: 700;
+  text-align: center;
+  font-size: 20px;
+  margin: 24px 0 24px 0;
+  text-transform: uppercase;
+  position: relative;
+}
+.node-blog-article-comment__title span, .node-blog-article-comment__form-title span {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 16px;
+}
+.node-blog-article-comment__title:before, .node-blog-article-comment__form-title:before {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #ccc6c6;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 5;
+}
