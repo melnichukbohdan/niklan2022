@@ -41,9 +41,10 @@ class LetterAvatar implements LetterAvatarInterface {
   public function getLetterFromUserName ($userName) {
     $userNameParts = explode(' ', $userName);
     $userNameSliced = array_slice($userNameParts, 0, 2);
+
     $letter = '';
     foreach ($userNameSliced as $userNamePart) {
-      $letter .= $userNamePart[0];
+      $letter .= mb_substr($userNamePart, 0, 1);
     }
 
     return mb_strtoupper($letter);

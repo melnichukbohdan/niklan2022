@@ -2,9 +2,9 @@ $avatar-with: 70px;
 
 .comment-comment {
   display: flex;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #ccc6c6;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #ccc6c6;
 
   & .hidden {
    visibility: hidden;
@@ -47,12 +47,6 @@ $avatar-with: 70px;
     z-index: 10;
   }
 
-  //&:last-child{
-  //  border-bottom: unset;
-  //  margin-bottom: unset;
-  //  padding-bottom: unset;
-  //}
-
   &__header {
     display: flex;
     margin-bottom: 8px;
@@ -73,4 +67,10 @@ $avatar-with: 70px;
       margin-left: 10px;
     }
   }
+}
+
+#comment-1 {
+  border-top: unset;
+  margin-top: unset;
+  padding-top: unset;
 }
