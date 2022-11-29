@@ -101,5 +101,5 @@ function blogger_preprocess_dlog_hero__dlog_node_blog_article (array &$variables
  * Implements hook_preprocess_HOOK() for field--node--comment--blog-article.html.twig
  */
 function blogger_preprocess_field__node__comment__blog_article (array &$variables) {
-  dump('test');
+
 }

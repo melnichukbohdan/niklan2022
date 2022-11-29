@@ -1,0 +1,131 @@
+$avatar-with: 40px;
+
+.comment-comment-full {
+  display: flex;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #ccc6c6;
+  font-size: 16px;
+
+  & .hidden {
+   visibility: hidden;
+
+  }
+  &__left {
+    width: $avatar-with;
+    margin-right: 16px;
+  }
+
+  &__right {
+    width: calc(100% - $avatar-with - 16px);
+  }
+
+  &__letter-avatar {
+    height: $avatar-with;
+    text-align: center;
+    line-height: $avatar-with;
+    font-weight: 700;
+    border-radius: $avatar-with;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+    &:before {
+      content: '';
+      background: linear-gradient(rgba(white, 0.2), rgba(black, 0.2));
+      z-index: 5;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__letter-avatar-letter {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__header {
+    height: 30px;
+    display: flex;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  &__header-item {
+    margin-right: 8px;
+  }
+
+  &__footer {
+    display: flex;
+    margin: auto 0 auto 0;
+  }
+
+  &__footer-item {
+    margin-right: 8px;
+    display: inline-flex;
+  }
+
+  &__homepage {
+    font-size: 10px;
+    font-weight: 700;
+    display: inline-flex;
+    padding: 2px 8px;
+    margin: 2px 0 0 0;
+    background: linear-gradient(45deg, rgb(82,135,231), rgb(213,72,207));
+    color: #fff0ff;
+    border-radius: 3px;
+    text-shadow: 0 1px 3px rgba(black, 0.1);
+    max-height: 20px;
+  }
+
+  &__new {
+    font-size: 10px;
+    font-weight: 700;
+    display: inline-flex;
+    padding: 2px 8px;
+    margin: 2px 0 0 0;
+    background: lighten(#3857ef, 15%);
+    color: #fff0ff;
+    border-radius: 3px;
+    text-shadow: 0 1px 3px rgba(black, 0.1);
+    max-height: 20px;
+  }
+
+  & .links {
+    display: flex;
+    list-style: none;
+    & > li {
+      margin-left: 8px;
+
+      a {
+        color: grey;
+        &:hover {
+          color: #5d5c5c
+        }
+      }
+
+      &:first-child {
+        margin-left: unset;
+      }
+    }
+  }
+
+  &__created {
+    align-self: center;
+    color: #abaaaa;
+  }
+}
+
+#comment-1 {
+  border-top: unset;
+  margin-top: unset;
+  padding-top: unset;
+}
+
+.username {
+  font-weight: 700;
+  color: black;
+}

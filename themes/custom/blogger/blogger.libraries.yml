@@ -128,7 +128,7 @@ content_main:
       css/content/node/node-blog-article-teaser.css: {}
       css/content/node/node-blog-article-full.css: {}
       css/content/page/node_page_full.css: {}
-      css/content/comment/comment-comment.css: {}
+      css/content/comment/comment-comment-full.css: {}
       css/content/paragraph/paragraph_title_style.css: {}
       css/content/paragraph/image_and_text/image_and_text.css: {}
       css/content/paragraph/gallery/paragraph-gallery.css: {}
