@@ -11,4 +11,18 @@
   }
 }
 
+.taxonomy-term {
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -17px;
+    .views-row {
+      max-width: 25%;
+      width: auto;
+      margin: 0 0 8px 0;
+      padding: 19px;
+      display: flex;
+    }
+  }
+}
 

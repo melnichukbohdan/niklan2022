@@ -118,6 +118,7 @@ content_main:
       css/content/main_styles.css: {}
       css/content/layout/app.css: {}
       css/content/layout/main_layout.css: {}
+      css/content/layout/region-content.css: {}
       css/content/theme/previous_next.css: {}
       css/content/theme/social_share.css: {}
       css/content/theme/dlog_label_with_icon_media_formatter.css: {}

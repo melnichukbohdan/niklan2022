@@ -13,3 +13,21 @@
   display: -ms-flexbox;
   display: flex;
 }
+
+.taxonomy-term__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: -17px;
+}
+.taxonomy-term__content .views-row {
+  max-width: 25%;
+  width: auto;
+  margin: 0 0 8px 0;
+  padding: 19px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}

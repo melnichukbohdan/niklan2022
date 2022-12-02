@@ -1,0 +1,8 @@
+name: DLOG - taxonomy terms
+type: module
+description: The helpers and custom code for taxonomy terms.
+package: dlog
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:taxonomy
+  - dlog:node
