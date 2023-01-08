@@ -126,6 +126,7 @@ content_main:
       css/content/theme/dlog-blog-random-post.css: {}
       css/content/theme/node-blog-article-comment.css: {}
       css/content/view/view-blog-article--page.css: {}
+      css/content/view/tags.css: {}
       css/content/node/node-blog-article-teaser.css: {}
       css/content/node/node-blog-article-full.css: {}
       css/content/page/node_page_full.css: {}
